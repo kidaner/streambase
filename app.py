@@ -21,7 +21,10 @@ df.style.set_properties(
 
 st.dataframe(df)
 
-st.sidebar.header("Filter Results:")
+st.sidebar.header("Welcome to playbook")
 
 category = st.sidebar.multiselect("Select category:", options=df["Category"].unique(),
                                   default=df["Category"].unique())
+
+label = st.sidebar.multiselect("Select label:", options=df["Label"].unique(),
+                               default=df["Label"].unique())
