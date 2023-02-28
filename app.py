@@ -11,3 +11,8 @@ df = pd.read_excel(io="latest.xlsx",
                    sheet_name="latest")
 
 st.dataframe(df)
+
+st.sidebar.header("Filter Results:")
+
+category = st.sidebar.multiselect("Select category:", options=df["Category"].unique(),
+                                  default=df["Category"].unique())
