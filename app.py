@@ -6,7 +6,7 @@ st.set_page_config(page_title="playbook",
                    page_icon=":notebook:",
                    layout="wide")
 
-df = pd.read_excel(io="latest.csv",
+df = pd.read_excel(io="latest.xlsx",
                    engine="openpyxl",
                    sheet_name="latest")
 
