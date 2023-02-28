@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import pyfiglet
 
 # Set the maximum column width to 50 characters
 pd.set_option('display.max_colwidth', 50)
@@ -19,8 +20,7 @@ df["Date"] = pd.to_datetime(df["Date"]).dt.strftime("%-m-%d")
 df.style.set_properties(
     subset=["Text"], **{'max-width': '100px', 'text-wrap': 'break-word'})
 
-
-st.sidebar.header("playbook is a Bloomberg bot")
+st.sidebar.header("playbook")
 
 category = st.sidebar.multiselect("Select category:", options=df["Category"].unique(),
                                   default=df["Category"].unique())
@@ -32,4 +32,7 @@ df_selection = df.query("Category in @category & Label in @label")
 
 st.dataframe(df_selection)
 
-st.title("by scargo")
+ascii_art = pyfiglet.figlet_format("scargo")
+
+# Display the ASCII art using st.code
+st.code(ascii_art, language="text")
