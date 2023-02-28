@@ -19,9 +19,8 @@ df["Date"] = pd.to_datetime(df["Date"]).dt.strftime("%-m-%d")
 df.style.set_properties(
     subset=["Text"], **{'max-width': '100px', 'text-wrap': 'break-word'})
 
-st.dataframe(df)
 
-st.sidebar.header("playbook v2")
+st.sidebar.header("playbook is a Bloomberg bot")
 
 category = st.sidebar.multiselect("Select category:", options=df["Category"].unique(),
                                   default=df["Category"].unique())
@@ -29,7 +28,8 @@ category = st.sidebar.multiselect("Select category:", options=df["Category"].uni
 label = st.sidebar.multiselect("Select label:", options=df["Label"].unique(),
                                default=df["Label"].unique())
 
-df_selection = df.query(
-    "Category == @category & Label == @label")
+df_selection = df.query("Category in @category & Label in @label")
 
-st.title(":playbook: playbook")
+st.dataframe(df_selection)
+
+st.title("by scargo")
