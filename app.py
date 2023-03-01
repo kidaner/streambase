@@ -7,7 +7,9 @@ pd.set_option('display.max_colwidth', 50)
 
 st.set_page_config(page_title="playbook",
                    page_icon=":notebook:",
-                   layout="wide")
+                   layout="wide",
+                   theme="dark",
+                   font="monospace")
 
 df = pd.read_excel(io="latest.xlsx",
                    engine="openpyxl",
