@@ -4,12 +4,12 @@ import streamlit as st
 # Set the maximum column width to 50 characters
 pd.set_option('display.max_colwidth', 50)
 
-
-st.set_page_config(page_title="playbook",
-                   page_icon=":notebook:",
-                   layout="wide",
-                   theme="dark",
-                   font="monospace")
+# Define a custom theme
+st.set_page_config(
+    page_title="playbook",
+    page_icon=":notebook:",
+    layout="wide"
+)
 
 df = pd.read_excel(io="latest.xlsx",
                    engine="openpyxl",
