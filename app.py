@@ -7,7 +7,6 @@ pd.set_option('display.max_colwidth', 50)
 # Define a custom theme
 st.set_page_config(
     page_title="playbook",
-    page_icon=":notebook:",
     layout="wide"
 )
 
