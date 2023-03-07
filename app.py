@@ -14,8 +14,14 @@ df = pd.read_excel(io="latest.xlsx",
                    engine="openpyxl",
                    sheet_name="latest")
 
+# Convert the "Date" column to datetime format
+df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
+
+# Remove the rows with invalid dates
+df = df.dropna(subset=["Date"])
+
 # Format the date column to display in the format "2-23"
-df["Date"] = pd.to_datetime(df["Date"]).dt.strftime("%-m-%d")
+df["Date"] = df["Date"].dt.strftime("%-m-%d")
 
 # Set the maximum column width of the "Text" column to 100 characters
 df.style.set_properties(
